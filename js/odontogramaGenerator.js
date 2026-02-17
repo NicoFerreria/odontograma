@@ -79,294 +79,297 @@ OdontogramaGenerator.prototype.updateLoad = function () {
  * @param {type} canvas the canvas where the odontograma will be drawn
  * @returns {void}
  */
-OdontogramaGenerator.prototype.prepareOdontogramaAdult = function (odontograma,
-        spaces, canvas) {
+// OdontogramaGenerator.prototype.prepareOdontogramaAdult = function (odontograma,
+//         spaces, canvas) {
 
-    "use strict";
-    var self = this;
-    this.arrayCount = 0;
+//     "use strict";
+//     var self = this;
+//     this.arrayCount = 0;
 
-    // center the ondotograma horizontal
-    var width = canvas.width;
-    var odontWidth = 16 * this.imgWidth;
-    var start = (width - odontWidth) / 2;
+//     // center the ondotograma horizontalvar 
+//     // var totalTeeth = 16 + 10;
+//     var width = canvas.width;
+//     var odontWidth = 16 * this.imgWidth;
+//     // var odontWidth = totalTeeth * this.imgWidth +
+//     //              (totalTeeth - 1) * this.settings.TOOTH_PADDING;
     
-    // start of first tooth
-    var x = start;
+//     var start = (width - odontWidth) / 2;
+    
+//     // start of first tooth
+//     var x = start;
 
-    // center vertial
-    var height = canvas.height;
-    var odontHeight = 2 * 150;
-    var base = (height - odontHeight) / 2;
+//     // center vertial
+//     var height = canvas.height;
+//     var odontHeight = 2 * 150;
+//     var base = (height - odontHeight) / 2;
     
 
-    // create the 1st group of upper teeth
-    for (var i = 18; i > 10; i--) {
+//     // create the 1st group of upper teeth
+//     for (var i = 18; i > 10; i--) {
 
-        var tooth = new Tooth();
-        tooth.setConstants(this.constants);
+//         var tooth = new Tooth();
+//         tooth.setConstants(this.constants);
 
-        if (i > 13)
-        {
-            tooth.setSurfaces(5);
+//         if (i > 13)
+//         {
+//             tooth.setSurfaces(5);
 
-        } else
-        {
-            tooth.setSurfaces(4);
-        }
+//         } else
+//         {
+//             tooth.setSurfaces(4);
+//         }
 
-        var image = new Image();
+//         var image = new Image();
 
-        image.onload = function () {
-            self.updateLoad();
-        };
+//         image.onload = function () {
+//             self.updateLoad();
+//         };
 
-        image.src = "images/dentadura-sup-" + i + ".png";
+//         image.src = "images/dentadura-sup-" + i + ".png";
 
-        tooth.id = i;
-        tooth.image = image;
+//         tooth.id = i;
+//         tooth.image = image;
         
-        tooth.setDimens(x,
-                        base, 
-                        this.imgWidth,
-                        this.imgHeight);
+//         tooth.setDimens(x,
+//                         base, 
+//                         this.imgWidth,
+//                         this.imgHeight);
                         
-        tooth.setType(0);
+//         tooth.setType(0);
 
-        x += tooth.rect.width + this.settings.TOOTH_PADDING;
+//         x += tooth.rect.width + this.settings.TOOTH_PADDING;
 
-        odontograma[this.arrayCount] = tooth;
+//         odontograma[this.arrayCount] = tooth;
 
-        tooth.address = this.arrayCount;
+//         tooth.address = this.arrayCount;
 
-        this.arrayCount++;
+//         this.arrayCount++;
 
-        tooth.createSurfaces(this.settings);
+//         tooth.createSurfaces(this.settings);
 
-        var space = new Tooth();
-        space.setConstants(this.constants);
+//         var space = new Tooth();
+//         space.setConstants(this.constants);
         
-        space.setSurfaces(5);
+//         space.setSurfaces(5);
 
-        if (i !== 11) {
-            var tmpid = (i) + "" + (i - 1);
-            space.id = Number(tmpid);
+//         if (i !== 11) {
+//             var tmpid = (i) + "" + (i - 1);
+//             space.id = Number(tmpid);
 
-        } else {
+//         } else {
 
-            var tmpid = (i) + "" + (21);
-            space.id = Number(tmpid);
+//             var tmpid = (i) + "" + (21);
+//             space.id = Number(tmpid);
 
-        }
+//         }
 
-        space.setDimens(tooth.rect.x + tooth.rect.width / 2,
-                        tooth.rect.y,
-                        tooth.rect.width,
-                        tooth.rect.height);
+//         space.setDimens(tooth.rect.x + tooth.rect.width / 2,
+//                         tooth.rect.y,
+//                         tooth.rect.width,
+//                         tooth.rect.height);
 
-        space.type = tooth.type;
-        space.tooth = false;
+//         space.type = tooth.type;
+//         space.tooth = false;
 
-        spaces.push(space);
+//         spaces.push(space);
 
-    }
+//     }
 
-    // create the 2nd group of upper teeth
-    for (var i = 21; i < 29; i++) {
+//     // create the 2nd group of upper teeth
+//     for (var i = 21; i < 29; i++) {
 
-        var tooth = new Tooth();
-        tooth.setConstants(this.constants);
+//         var tooth = new Tooth();
+//         tooth.setConstants(this.constants);
 
-        if (i < 24)
-        {
-            tooth.setSurfaces(4);
-        } else
-        {
-            tooth.setSurfaces(5);
-        }
+//         if (i < 24)
+//         {
+//             tooth.setSurfaces(4);
+//         } else
+//         {
+//             tooth.setSurfaces(5);
+//         }
 
-        var image = new Image;
+//         var image = new Image;
 
-        image.onload = function () {
-            self.updateLoad();
-        };
+//         image.onload = function () {
+//             self.updateLoad();
+//         };
 
-        image.src = "images/dentadura-sup-" + i + ".png";
+//         image.src = "images/dentadura-sup-" + i + ".png";
 
-        tooth.id = i;
-        tooth.image = image;
+//         tooth.id = i;
+//         tooth.image = image;
         
-        tooth.setDimens(x, 
-                        base,
-                        this.imgWidth, 
-                        this.imgHeight);
+//         tooth.setDimens(x, 
+//                         base,
+//                         this.imgWidth, 
+//                         this.imgHeight);
                         
-        tooth.setType(0);
+//         tooth.setType(0);
 
-        x += tooth.rect.width + this.settings.TOOTH_PADDING;
+//         x += tooth.rect.width + this.settings.TOOTH_PADDING;
 
-        odontograma[this.arrayCount] = tooth;
+//         odontograma[this.arrayCount] = tooth;
 
-        tooth.address = this.arrayCount;
+//         tooth.address = this.arrayCount;
 
-        this.arrayCount++;
+//         this.arrayCount++;
 
-        tooth.createSurfaces(this.settings);
+//         tooth.createSurfaces(this.settings);
 
-        if (i < 28) {
+//         if (i < 28) {
 
-            var space = new Tooth();
-            space.setConstants(this.constants);
-            space.setSurfaces(5);
-            var tmpid = (i) + "" + (i + 1);
-            space.id = Number(tmpid);
+//             var space = new Tooth();
+//             space.setConstants(this.constants);
+//             space.setSurfaces(5);
+//             var tmpid = (i) + "" + (i + 1);
+//             space.id = Number(tmpid);
 
-            space.setDimens(tooth.rect.x + tooth.rect.width / 2,
-                            tooth.rect.y,
-                            tooth.rect.width,
-                            tooth.rect.height);
+//             space.setDimens(tooth.rect.x + tooth.rect.width / 2,
+//                             tooth.rect.y,
+//                             tooth.rect.width,
+//                             tooth.rect.height);
 
-            space.type = tooth.type;
-            space.tooth = false;
+//             space.type = tooth.type;
+//             space.tooth = false;
 
-            spaces.push(space);
-        }
-    }
+//             spaces.push(space);
+//         }
+//     }
 
-    // start position of first 
-    var x = start;
+//     // start position of first 
+//     var x = start;
 
-    // create the 1st group of lower teeth
-    for (var i = 48; i > 40; i--) {
+//     // create the 1st group of lower teeth
+//     for (var i = 48; i > 40; i--) {
 
-        var tooth = new Tooth();
-        tooth.setConstants(this.constants);
+//         var tooth = new Tooth();
+//         tooth.setConstants(this.constants);
 
-        if (i < 44)
-        {
-            tooth.setSurfaces(4);
+//         if (i < 44)
+//         {
+//             tooth.setSurfaces(4);
 
-        } else
-        {
-            tooth.setSurfaces(5);
-        }
+//         } else
+//         {
+//             tooth.setSurfaces(5);
+//         }
 
-        var image = new Image();
+//         var image = new Image();
 
-        image.onload = function () {
-            self.updateLoad();
-        };
+//         image.onload = function () {
+//             self.updateLoad();
+//         };
 
-        image.src = "images/dentadura-inf-" + i + ".png";
+//         image.src = "images/dentadura-inf-" + i + ".png";
 
-        tooth.id = i;
-        tooth.image = image;
+//         tooth.id = i;
+//         tooth.image = image;
 
-        tooth.setDimens(x,
-                        base + this.seperator,
-                        this.imgWidth,
-                        this.imgHeight);
+//         tooth.setDimens(x,
+//                         base + this.seperator,
+//                         this.imgWidth,
+//                         this.imgHeight);
 
-        tooth.setType(1);
+//         tooth.setType(1);
 
-        x += tooth.rect.width+ this.settings.TOOTH_PADDING;
+//         x += tooth.rect.width+ this.settings.TOOTH_PADDING;
 
-        odontograma[this.arrayCount] = tooth;
+//         odontograma[this.arrayCount] = tooth;
 
-        tooth.address = this.arrayCount;
+//         tooth.address = this.arrayCount;
 
-        this.arrayCount++;
+//         this.arrayCount++;
 
-        tooth.createSurfaces(this.settings);
+//         tooth.createSurfaces(this.settings);
 
-        var space = new Tooth();
-        space.setConstants(this.constants);
-        space.setSurfaces(5);
+//         var space = new Tooth();
+//         space.setConstants(this.constants);
+//         space.setSurfaces(5);
 
-        if (i !== 41) {
-            var tmpid = (i) + "" + (i - 1);
-            space.id = Number(tmpid);
+//         if (i !== 41) {
+//             var tmpid = (i) + "" + (i - 1);
+//             space.id = Number(tmpid);
 
-        } else {
+//         } else {
 
-            var tmpid = (i) + "" + (31);
-            space.id = Number(tmpid);
+//             var tmpid = (i) + "" + (31);
+//             space.id = Number(tmpid);
 
-        }
+//         }
 
-        space.setDimens(tooth.rect.x + tooth.rect.width / 2,
-                        tooth.rect.y,
-                        tooth.rect.width,
-                        tooth.rect.height);
+//         space.setDimens(tooth.rect.x + tooth.rect.width / 2,
+//                         tooth.rect.y,
+//                         tooth.rect.width,
+//                         tooth.rect.height);
 
-        space.type = tooth.type;
-        space.tooth = false;
+//         space.type = tooth.type;
+//         space.tooth = false;
 
-        spaces.push(space);
+//         spaces.push(space);
 
-    }
+//     }
 
-    // create the 2nd group of lower teeth
-    for (var i = 31; i < 39; i++) {
+//     // create the 2nd group of lower teeth
+//     for (var i = 31; i < 39; i++) {
 
-        var tooth = new Tooth();
-        tooth.setConstants(this.constants);
+//         var tooth = new Tooth();
+//         tooth.setConstants(this.constants);
         
-        if (i < 34)
-        {
-            tooth.setSurfaces(4);
-        } else
-        {
-            tooth.setSurfaces(5);
-        }
+//         if (i < 34)
+//         {
+//             tooth.setSurfaces(4);
+//         } else
+//         {
+//             tooth.setSurfaces(5);
+//         }
 
-        var image = new Image();
+//         var image = new Image();
 
-        image.onload = function () {
-            self.updateLoad();
-        };
+//         image.onload = function () {
+//             self.updateLoad();
+//         };
 
-        image.src = "images/dentadura-inf-" + i + ".png";
+//         image.src = "images/dentadura-inf-" + i + ".png";
 
-        tooth.id = i;
-        tooth.image = image;
-        tooth.setDimens(x,
-                        base + this.seperator,
-                        this.imgWidth,
-                        this.imgHeight);
+//         tooth.id = i;
+//         tooth.image = image;
+//         tooth.setDimens(x,
+//                         base + this.seperator,
+//                         this.imgWidth,
+//                         this.imgHeight);
 
-        tooth.setType(1);
+//         tooth.setType(1);
 
-        odontograma[this.arrayCount] = tooth;
-        x += tooth.rect.width + this.settings.TOOTH_PADDING;
+//         odontograma[this.arrayCount] = tooth;
+//         x += tooth.rect.width + this.settings.TOOTH_PADDING;
 
-        tooth.address = this.arrayCount;
-        this.arrayCount++;
+//         tooth.address = this.arrayCount;
+//         this.arrayCount++;
 
-        tooth.createSurfaces(this.settings);
+//         tooth.createSurfaces(this.settings);
 
-        if (i < 38) {
+//         if (i < 38) {
 
-            var space = new Tooth();
-            space.setConstants(this.constants);
-            space.setSurfaces(5);
-            var tmpid = (i) + "" + (i + 1);
-            space.id = Number(tmpid);
+//             var space = new Tooth();
+//             space.setConstants(this.constants);
+//             space.setSurfaces(5);
+//             var tmpid = (i) + "" + (i + 1);
+//             space.id = Number(tmpid);
 
-            space.setDimens(tooth.rect.x + tooth.rect.width / 2,
-                            tooth.rect.y,
-                            tooth.rect.width,
-                            tooth.rect.height);
+//             space.setDimens(tooth.rect.x + tooth.rect.width / 2,
+//                             tooth.rect.y,
+//                             tooth.rect.width,
+//                             tooth.rect.height);
 
-            space.type = tooth.type;
-            space.tooth = false;
+//             space.type = tooth.type;
+//             space.tooth = false;
 
-            spaces.push(space);
-        }
+//             spaces.push(space);
+//         }
 
-    }
-
-};
+//     }
+// };
 
 
 /**
@@ -645,3 +648,202 @@ spaces, canvas) {
     }
 
 };
+
+OdontogramaGenerator.prototype.createTeethRowWithGap = function (
+    group,
+    startX,
+    odontograma,
+    spaces
+) {
+
+    var self = this;
+    var x = startX;
+    var step = group.start > group.end ? -1 : 1;
+
+    for (var i = group.start; i !== group.end + step; i += step) {
+
+        var tooth = new Tooth();
+        tooth.setConstants(this.constants);
+
+        tooth.setSurfaces(group.surfaces(i));
+
+        var image = new Image();
+        image.onload = function () {
+            self.updateLoad();
+        };
+
+        image.src = group.imagePrefix + i + ".png";
+
+        tooth.id = i;
+        tooth.image = image;
+
+        tooth.setDimens(
+            x,
+            group.base,
+            this.imgWidth,
+            this.imgHeight
+        );
+
+        tooth.setType(group.type);
+
+        x += tooth.rect.width + this.settings.TOOTH_PADDING;
+
+        odontograma[this.arrayCount] = tooth;
+        tooth.address = this.arrayCount;
+
+        this.arrayCount++;
+        tooth.createSurfaces(this.settings);
+
+        if (i !== group.end) {
+
+            var space = new Tooth();
+            space.setConstants(this.constants);
+            space.setSurfaces(5);
+
+            var tmpid = "" + i + (i + step);
+            space.id = Number(tmpid);
+
+            space.setDimens(
+                tooth.rect.x + tooth.rect.width / 2,
+                tooth.rect.y,
+                tooth.rect.width,
+                tooth.rect.height
+            );
+
+            space.type = tooth.type;
+            space.tooth = false;
+
+            spaces.push(space);
+        }
+    }
+
+    return x;
+};
+
+OdontogramaGenerator.prototype.prepareOdontogramaAdult = function (
+    odontograma,
+    spaces,
+    canvas
+) {
+    "use strict";
+
+    var self = this;
+    this.arrayCount = 0;
+
+    var width = canvas.width;
+    var height = canvas.height;
+
+    var verticalGap = 120; // espaço entre arcada superior e inferior
+    var rowHeight = this.imgHeight;
+
+    var baseSuperior = (height / 2) - rowHeight - (verticalGap / 2);
+    var baseInferior = (height / 2) + (verticalGap / 2);
+
+    var separationGap = 80; // 🔥 espaço extra entre adulto e infantil
+
+    // =============================
+    // DEFINIÇÃO DOS GRUPOS
+    // =============================
+
+    var groups = [
+
+        // SUPERIOR ADULTO
+        {
+            start: 18,
+            end: 11,
+            imagePrefix: "images/dentadura-sup-",
+            type: 0,
+            base: baseSuperior,
+            extraGapAfter: separationGap,
+            surfaces: function (id) {
+                return id > 13 ? 5 : 4;
+            }
+        },
+
+        // SUPERIOR INFANTIL
+        {
+            start: 55,
+            end: 51,
+            imagePrefix: "images/dentadura-sup-",
+            type: 0,
+            base: baseSuperior,
+            extraGapAfter: 0,
+            surfaces: function () {
+                return 4;
+            }
+        },
+
+        // INFERIOR ADULTO
+        {
+            start: 48,
+            end: 41,
+            imagePrefix: "images/dentadura-inf-",
+            type: 1,
+            base: baseInferior,
+            extraGapAfter: separationGap,
+            surfaces: function (id) {
+                return id > 44 ? 5 : 4;
+            }
+        },
+
+        // INFERIOR INFANTIL
+        {
+            start: 85,
+            end: 81,
+            imagePrefix: "images/dentadura-inf-",
+            type: 1,
+            base: baseInferior,
+            extraGapAfter: 0,
+            surfaces: function () {
+                return 4;
+            }
+        }
+    ];
+
+    // =============================
+    // CALCULAR LARGURA TOTAL
+    // =============================
+
+    var totalWidth = 0;
+    var currentRow = null;
+
+    groups.forEach(function (g) {
+
+        if (currentRow !== g.base) {
+            currentRow = g.base;
+            totalWidth = 0;
+        }
+
+        totalWidth +=
+            (Math.abs(g.start - g.end) + 1) * self.imgWidth +
+            (Math.abs(g.start - g.end)) * self.settings.TOOTH_PADDING +
+            g.extraGapAfter;
+    });
+
+    var xStart = (width - totalWidth) / 2;
+
+    // =============================
+    // CRIAR GRUPOS
+    // =============================
+
+    var x = xStart;
+    var lastBase = groups[0].base;
+
+    groups.forEach(function (group) {
+
+        if (group.base !== lastBase) {
+            x = xStart; // reinicia X na linha inferior
+            lastBase = group.base;
+        }
+
+        x = self.createTeethRowWithGap(
+            group,
+            x,
+            odontograma,
+            spaces
+        );
+
+        x += group.extraGapAfter; // 🔥 adiciona espaço visual
+    });
+};
+

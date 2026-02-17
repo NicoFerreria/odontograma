@@ -20,6 +20,7 @@ function MenuItem() {
     this.highY = null;
     this.blocked = false;
     this.constants = null;
+    this.fontBold = false;
 
 }
 
@@ -58,7 +59,7 @@ MenuItem.prototype.render = function (context, settings, constants) {
 
     if(this.highlight) {
         this.renderStateFocus(context);
-    } 
+    }    
 
     this.renderLabel(context);
 };
@@ -146,8 +147,12 @@ MenuItem.prototype.renderLabel = function (context) {
     context.globalAlpha = 1;
 
     context.textAlign = "center";
-    context.fillStyle = "#35353f";
+    context.fillStyle = "#35353f";    
     context.font = "13px Arial";
+    if(this.fontBold){
+        context.font = "bold 13px Arial";
+    }
+    
 
     context.fillText(this.textBox.text,
             this.rect.x + this.rect.width / 2,
@@ -157,3 +162,4 @@ MenuItem.prototype.renderLabel = function (context) {
 
     context.restore();
 };
+

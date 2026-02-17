@@ -460,6 +460,11 @@ Tooth.prototype.drawCheckBoxes = function (context, settings) {
             this.checkBoxes[i].fillColor(context, settings.COLOR_BLUE);
             this.checkBoxes[i].outline(context, "#000000");
 
+        } else if (this.checkBoxes[i].state === 40) {
+
+            this.checkBoxes[i].fillColor(context, settings.COLOR_HIGHLIGHT_BLUE);
+            this.checkBoxes[i].outline(context, "#000000");
+
         } else {
 
             this.checkBoxes[i].outline(context, "#000000");

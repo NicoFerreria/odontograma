@@ -40,6 +40,11 @@ Rect.prototype.uncheck = function () {
     this.state = 0;
 };
 
+Rect.prototype.checkClaro = function () {
+    "use strict";
+    this.state = 40;
+};
+
 /**
  * Method to if a point is inside the rectangle
  * @param {type} cursX x coordinate of point

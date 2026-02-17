@@ -30,6 +30,8 @@ function Settings() {
     this.COLOR_BLUE = "#0052ff";
     this.COLOR_BLACK = "#000000";
     this.COLOR_HIGHLIGHT = "#00AEFF";
+    this.COLOR_HIGHLIGHT_BLUE = "#00AEFF";
     this.COLOR_HIGHLIGHT_BAD = "#FF0000";
+    this.FONT_BOLD = false;
 
 }

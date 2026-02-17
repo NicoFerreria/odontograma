@@ -56,7 +56,13 @@ function Constants() {
     this.DIENTE_DISCR0MICO = 22;
     this.SUPERFICIE_DESGASTADA = 37;
     this.SEMI_IMPACTACI0N = 38;
-
+    this.X_VERMELHO = 39;
+    this.CHECK_QUADRADO = 40;
+    this.DECIDUO = 41;
+    this.DOENCA_PERIODONTAL = 42;
+    this.PROTESE_FIXA = 43;
+    this.COLO_DENTARIO = 44;
+    this.COLO_DENTARIO_FEITO = 45;
 
     this.all = [
         this.CARIES,
@@ -95,7 +101,14 @@ function Constants() {
         this.DIENTE_ECTOPICO,
         this.DIENTE_DISCR0MICO,
         this.SUPERFICIE_DESGASTADA,
-        this.SEMI_IMPACTACI0N
+        this.SEMI_IMPACTACI0N,
+        this.X_VERMELHO,
+        this.CHECK_QUADRADO,
+        this.DECIDUO,
+        this.DOENCA_PERIODONTAL,
+        this.PROTESE_FIXA,
+        this.COLO_DENTARIO,
+        this.COLO_DENTARIO_FEITO
     ];
     /**
      * Method to check if a damage is writable, is text only

@@ -56,7 +56,7 @@ Damage.prototype.drawFractura = function (context, settings) {
 
     context.lineWidth = 2;
     // set line color
-    context.strokeStyle = settings.COLOR_RED;
+    context.strokeStyle = settings.COLOR_BLUE;
     context.stroke();
     context.restore();
 
@@ -578,30 +578,7 @@ Damage.prototype.drawProtesisTotal = function (context, settings) {
 
 };
 
-Damage.prototype.drawEdentuloTotal = function (context, settings) {
-    "use strict";
-    context.beginPath();
-
-    if (this.type === 0) {
-
-        context.moveTo(this.rect.x, this.rect.y + this.rect.height - 20);
-
-        context.lineTo(this.rect.x + this.rect.width,
-                this.rect.y + this.rect.height - 20);
-
-    } else {
-
-        context.moveTo(this.rect.x, this.rect.y + 20);
-        context.lineTo(this.rect.x + this.rect.width, this.rect.y + 20);
-    }
-
-    context.lineWidth = 3;
-    // set line color
-    context.strokeStyle = settings.COLOR_BLUE;
-    context.stroke();
-    context.restore();
-
-};
+ 
 
 Damage.prototype.drawDienteEnClavija = function (context, settings) {
     "use strict";
@@ -610,7 +587,7 @@ Damage.prototype.drawDienteEnClavija = function (context, settings) {
 
     context.lineWidth = 3;
 
-    context.strokeStyle = settings.COLOR_BLUE;
+    context.strokeStyle = settings.COLOR_HIGHLIGHT_BLUE;
 
     if (this.type === 0) {
         context.moveTo(this.rect.x, this.rect.y + this.rect.height);
@@ -1267,10 +1244,259 @@ Damage.prototype.drawSuperficieDesgastada = function (context, settings) {
 
 };
 
+//BKP
+
+// Damage.prototype.drawEdentuloTotal = function (context, settings) {
+//     "use strict";
+//     context.beginPath();
+
+//     if (this.type === 0) {
+
+//         context.moveTo(this.rect.x, this.rect.y + this.rect.height - 20);
+
+//         context.lineTo(this.rect.x + this.rect.width,
+//                 this.rect.y + this.rect.height - 20);
+
+//     } else {
+
+//         context.moveTo(this.rect.x, this.rect.y + 20);
+//         context.lineTo(this.rect.x + this.rect.width, this.rect.y + 20);
+//     }
+
+//     context.lineWidth = 3;
+//     // set line color
+//     context.strokeStyle = settings.COLOR_BLUE;
+//     context.stroke();
+//     context.restore();
+
+// };
+
+
+
+//Adaptados
+Damage.prototype.drawDoencaPeriodontal = function (context, settings) {
+    "use strict";
+    context.beginPath();
+
+    if (this.type === 0) {
+
+        context.moveTo(this.rect.x + this.rect.width - 20, this.rect.y);
+
+        context.lineTo(this.rect.x + this.rect.width - 20,
+                this.rect.y + this.rect.height);
+
+    } else {
+
+        context.moveTo(this.rect.x + 20, this.rect.y);
+        context.lineTo(this.rect.x + 20, this.rect.y + this.rect.height);
+    }
+
+    context.lineWidth = 3;
+    // set line color
+    context.strokeStyle = settings.COLOR_RED;
+    context.stroke();
+    context.restore();
+
+};
+
+Damage.prototype.drawColoDentario = function (context, settings) {
+    "use strict";
+    context.beginPath();
+
+    if (this.type === 0) {
+
+        context.moveTo(this.rect.x, this.rect.y + this.rect.height - 33);
+
+        context.lineTo(this.rect.x + this.rect.width,
+                this.rect.y + this.rect.height - 33);
+
+    } else {
+
+        context.moveTo(this.rect.x, this.rect.y + 20);
+        context.lineTo(this.rect.x + this.rect.width, this.rect.y + 20);
+    }
+
+    context.lineWidth = 3;
+    // set line color
+    context.strokeStyle = settings.COLOR_RED;
+    context.stroke();
+    context.restore();
+
+};
+
+Damage.prototype.drawColoDentarioFeito = function (context, settings) {
+    "use strict";
+    context.beginPath();
+
+    if (this.type === 0) {
+
+        context.moveTo(this.rect.x, this.rect.y + this.rect.height - 33);
+
+        context.lineTo(this.rect.x + this.rect.width,
+                this.rect.y + this.rect.height - 33);
+
+    } else {
+
+        context.moveTo(this.rect.x, this.rect.y + 20);
+        context.lineTo(this.rect.x + this.rect.width, this.rect.y + 20);
+    }
+
+    context.lineWidth = 3;
+    // set line color
+    context.strokeStyle = settings.COLOR_BLUE;
+    context.stroke();
+    context.restore();
+
+};
+
+Damage.prototype.drawEdentuloTotal = function (context, settings) {
+    "use strict";
+    context.beginPath();
+
+    if (this.type === 0) {
+
+        context.moveTo(this.rect.x + this.rect.width - 20, this.rect.y);
+
+        context.lineTo(this.rect.x + this.rect.width - 20,
+                this.rect.y + this.rect.height);
+
+    } else {
+
+        context.moveTo(this.rect.x + 20, this.rect.y);
+        context.lineTo(this.rect.x + 20, this.rect.y + this.rect.height);
+    }
+
+    context.lineWidth = 3;
+    // set line color
+    context.strokeStyle = settings.COLOR_BLUE;
+    context.stroke();
+    context.restore();
+
+};
+
+Damage.prototype.drawXVermelho = function (context, settings) {
+    "use strict";
+    context.beginPath();
+
+    if (this.type === 0) {
+
+        context.moveTo(this.rect.x, this.rect.y + this.rect.height);
+
+        context.lineTo(this.rect.x + this.rect.width,
+                this.rect.y + this.rect.height * 0.25);
+
+        context.lineWidth = 2;
+
+        // set line color
+        context.strokeStyle = settings.COLOR_RED;
+        context.stroke();
+        context.restore();
+
+        context.moveTo(this.rect.x + this.rect.width,
+                this.rect.y + this.rect.height);
+
+        context.lineTo(this.rect.x, this.rect.y + this.rect.height * 0.25);
+
+        context.strokeStyle = settings.COLOR_RED;
+        context.stroke();
+
+
+    } else {
+
+
+        context.moveTo(this.rect.x, this.rect.y);
+
+        context.lineTo(this.rect.x + this.rect.width,
+                this.rect.y + this.rect.height * 0.75);
+
+        context.lineWidth = 2;
+
+        // set line color
+        context.strokeStyle = settings.COLOR_RED;
+        context.stroke();
+        context.restore();
+
+        context.moveTo(this.rect.x + this.rect.width, this.rect.y);
+        context.lineTo(this.rect.x, this.rect.y + this.rect.height * 0.75);
+
+        context.strokeStyle = settings.COLOR_RED;
+        context.stroke();
+
+    }
+
+    context.restore();
+};
+
+Damage.prototype.drawDeciduo= function (context, settings) {
+    "use strict";
+    context.beginPath();
+    
+    var padding = 0;
+       
+        context.ellipse(this.rect.x + this.rect.width / 2, 
+                    this.rect.y + this.rect.height / 2, 
+                    (this.rect.width - padding) /2, 
+                    (this.rect.height - padding) /2, 
+                    0,
+                    0,
+                    2 * Math.PI);
+
+        context.lineWidth = 2;
+        context.strokeStyle = settings.COLOR_BLUE;
+        context.stroke();
+       
+        context.restore();    
+};
+
+Damage.prototype.drawProteseFixa= function (context, settings) {
+    "use strict";
+    context.beginPath();
+    
+    var padding = 0;
+    context.globalAlpha = 0.5;
+    context.fillStyle = settings.COLOR_BLUE;
+
+    context.ellipse(this.rect.x + this.rect.width / 2, 
+                this.rect.y + this.rect.height / 2, 
+                (this.rect.width - padding) /2, 
+                (this.rect.height - padding) /2, 
+                0,
+                0,
+                2 * Math.PI);        
+       
+    context.fill();
+    context.globalAlpha = 1;
+    context.restore();    
+};
+
 Damage.prototype.render = function (context, settings, constants) {
     "use strict";
 
     if (this.origin === "0") {
+
+        if (this.id === constants.COLO_DENTARIO_FEITO) {
+            this.drawColoDentarioFeito(context, settings);
+        }
+
+        if (this.id === constants.COLO_DENTARIO) {
+            this.drawColoDentario(context, settings);
+        }
+
+        if (this.id === constants.PROTESE_FIXA) {
+            this.drawProteseFixa(context, settings);
+        }
+
+        if (this.id === constants.DOENCA_PERIODONTAL) {
+            this.drawDoencaPeriodontal(context, settings);
+        }
+
+        if (this.id === constants.DECIDUO) {
+            this.drawDeciduo(context, settings);
+        }
+
+        if (this.id === constants.X_VERMELHO) {
+            this.drawXVermelho(context, settings);
+        }
 
         if (this.id === constants.FRACTURA) {
             this.drawFractura(context, settings);
