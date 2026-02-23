@@ -636,7 +636,8 @@ Engine.prototype.mouseClickTooth = function (event) {
             this.getYpos(event))) {
 
             if (this.currentType === 0) {
-                this.onTextBoxClicked(this.mouth[i].textBox);
+                return;
+                //this.onTextBoxClicked(this.mouth[i].textBox);
             }
         }
 
