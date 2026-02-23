@@ -40,7 +40,7 @@ CollisionHandler.prototype.handleCollision = function (tooth, argument) {
 
     try {
 
-        newArg = Number(argument);
+        newArg = Number(argument);        
 
     } catch (e) {
         console.log("Handle Collision Exception: " + e.message);

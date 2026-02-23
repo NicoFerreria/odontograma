@@ -207,7 +207,7 @@ Renderer.prototype.setSettings = function (settings) {
  */
 Renderer.prototype.setCanvasSize = function (width, height) {
 
-    this.context.canvas.width = width;
+    this.context.canvas.width = window.innerWidth;;
     this.context.canvas.height = height;
 
 };

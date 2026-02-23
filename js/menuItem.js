@@ -148,9 +148,9 @@ MenuItem.prototype.renderLabel = function (context) {
 
     context.textAlign = "center";
     context.fillStyle = "#35353f";    
-    context.font = "13px Arial";
+    context.font = "14px Arial";
     if(this.fontBold){
-        context.font = "bold 13px Arial";
+        context.font = "bold 14px Arial";
     }
     
 

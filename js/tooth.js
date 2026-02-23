@@ -540,14 +540,16 @@ Tooth.prototype.createDamage = function (damageId) {
                         this.y + this.rect.height,
                         this.rect.width,
                         60,
-                        this.type);
+                        this.type,
+                        this.id);
             } else {
                 damage = new Damage(damageId,
                         this.rect.x,
                         this.y - 60,
                         this.rect.width,
                         60,
-                        this.type);
+                        this.type,
+                        this.id);
             }
 
         } else if (this.constants.isWritable(damageId)) {
@@ -558,7 +560,8 @@ Tooth.prototype.createDamage = function (damageId) {
                     this.textBox.rect.y,
                     this.textBox.rect.width,
                     this.textBox.rect.height,
-                    this.type);
+                    this.type,
+                    this.id);
 
         } else {
 
@@ -568,7 +571,8 @@ Tooth.prototype.createDamage = function (damageId) {
                     this.y,
                     this.rect.width,
                     this.rect.height,
-                    this.type);
+                    this.type,
+                    this.id);
         }
 
     } else {
@@ -580,14 +584,16 @@ Tooth.prototype.createDamage = function (damageId) {
                     this.y + this.rect.height,
                     this.rect.width,
                     60,
-                    this.type);
+                    this.type,
+                    this.id);
         } else {
             damage = new Damage(damageId,
                     this.rect.x,
                     this.y - 60,
                     this.rect.width,
                     60,
-                    this.type);
+                    this.type,
+                    this.id);
         }
 
         damage.setDiagnostic();

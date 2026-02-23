@@ -15,7 +15,7 @@
  */
 
 
-function Damage(id, x, y, width, height, type) {
+function Damage(id, x, y, width, height, type, toothId) {
     "use strict";
     this.id = id;
     this.rect = new Rect();
@@ -26,6 +26,7 @@ function Damage(id, x, y, width, height, type) {
     this.direction = -1; // 0 left, 1 right
     this.type = type;
     this.origin = "0";
+    this.toothId = toothId;
 
 }
 
@@ -33,35 +34,6 @@ Damage.prototype.setDiagnostic = function () {
     "use strict";
     this.origin = "1";
 };
-
-Damage.prototype.drawFractura = function (context, settings) {
-    "use strict";
-    context.beginPath();
-
-    if (this.type === 0) {
-
-        context.moveTo(this.rect.x,
-                this.rect.y + this.rect.height);
-
-        context.lineTo(this.rect.x + this.rect.width,
-                this.rect.y + this.rect.height / 2);
-
-    } else {
-
-        context.moveTo(this.rect.x, this.rect.y);
-
-        context.lineTo(this.rect.x + this.rect.width,
-                this.rect.y + this.rect.height / 2);
-    }
-
-    context.lineWidth = 2;
-    // set line color
-    context.strokeStyle = settings.COLOR_BLUE;
-    context.stroke();
-    context.restore();
-
-};
-
 
 Damage.prototype.drawDienteAusente = function (context, settings) {
     "use strict";
@@ -1280,20 +1252,45 @@ Damage.prototype.drawDoencaPeriodontal = function (context, settings) {
 
     if (this.type === 0) {
 
-        context.moveTo(this.rect.x + this.rect.width - 20, this.rect.y);
+        context.moveTo(this.rect.x + (this.rect.width / 2), this.rect.y + 15);
 
-        context.lineTo(this.rect.x + this.rect.width - 20,
-                this.rect.y + this.rect.height);
+        context.lineTo(this.rect.x + (this.rect.width / 2),
+                this.rect.y + this.rect.height - 40);
 
     } else {
 
-        context.moveTo(this.rect.x + 20, this.rect.y);
-        context.lineTo(this.rect.x + 20, this.rect.y + this.rect.height);
+        context.moveTo(this.rect.x + (this.rect.width / 2), this.rect.y + 40);
+        context.lineTo(this.rect.x + (this.rect.width / 2), this.rect.y + this.rect.height - 20);
     }
 
     context.lineWidth = 3;
     // set line color
     context.strokeStyle = settings.COLOR_RED;
+    context.stroke();
+    context.restore();
+
+};
+
+Damage.prototype.drawTratEndoFeito = function (context, settings) {
+    "use strict";
+    context.beginPath();
+    
+    if (this.type === 0) {
+
+        context.moveTo(this.rect.x + (this.rect.width / 2), this.rect.y + 15);
+
+        context.lineTo(this.rect.x + (this.rect.width / 2),
+                this.rect.y + this.rect.height - 40);
+
+    } else {
+
+        context.moveTo(this.rect.x + (this.rect.width / 2), this.rect.y + 40);
+        context.lineTo(this.rect.x + (this.rect.width / 2), this.rect.y + this.rect.height - 20);
+    }
+
+    context.lineWidth = 3;
+    // set line color
+    context.strokeStyle = settings.COLOR_BLUE;
     context.stroke();
     context.restore();
 
@@ -1312,8 +1309,8 @@ Damage.prototype.drawColoDentario = function (context, settings) {
 
     } else {
 
-        context.moveTo(this.rect.x, this.rect.y + 20);
-        context.lineTo(this.rect.x + this.rect.width, this.rect.y + 20);
+        context.moveTo(this.rect.x, this.rect.y + 33);
+        context.lineTo(this.rect.x + this.rect.width, this.rect.y + 33);
     }
 
     context.lineWidth = 3;
@@ -1327,7 +1324,7 @@ Damage.prototype.drawColoDentario = function (context, settings) {
 Damage.prototype.drawColoDentarioFeito = function (context, settings) {
     "use strict";
     context.beginPath();
-
+    
     if (this.type === 0) {
 
         context.moveTo(this.rect.x, this.rect.y + this.rect.height - 33);
@@ -1337,8 +1334,8 @@ Damage.prototype.drawColoDentarioFeito = function (context, settings) {
 
     } else {
 
-        context.moveTo(this.rect.x, this.rect.y + 20);
-        context.lineTo(this.rect.x + this.rect.width, this.rect.y + 20);
+        context.moveTo(this.rect.x, this.rect.y + 33);
+        context.lineTo(this.rect.x + this.rect.width, this.rect.y + 33);
     }
 
     context.lineWidth = 3;
@@ -1469,10 +1466,107 @@ Damage.prototype.drawProteseFixa= function (context, settings) {
     context.restore();    
 };
 
+Damage.prototype.DaDireitaParaEsquesdaCima =  function(context){
+    //Da direita para esquerda
+    context.moveTo(this.rect.x + this.rect.width, this.rect.y + this.rect.height / 2);
+
+    context.lineTo(this.rect.x, this.rect.y + this.rect.height);
+}
+
+Damage.prototype.DaEsquerdaParaDireitaCima = function (context){
+    //Da esquerda para direita
+    context.moveTo(this.rect.x + this.rect.width , this.rect.y + this.rect.height);
+
+    context.lineTo(this.rect.x, this.rect.y + this.rect.height / 2);
+}
+
+Damage.prototype.DaEsquerdaParaDireitaBaixo = function (context){
+    //Da esquerda para direita
+    context.moveTo(this.rect.x, this.rect.y);
+
+    context.lineTo(this.rect.x + this.rect.width, this.rect.y + this.rect.height / 2);
+
+  
+}
+
+Damage.prototype.DaDireitaParaEsquerdaBaixo =  function(context){
+    //Da direita para esquerda
+       context.moveTo(this.rect.x + this.rect.width, this.rect.y);
+
+    context.lineTo(this.rect.x, this.rect.y + this.rect.height / 2);
+}
+
+Damage.prototype.drawFractura = function (context, settings) {
+    "use strict";
+    context.beginPath();
+
+    if(this.type === 0){
+        if(this.toothId >= 11 && this.toothId <= 18){            
+            this.DaDireitaParaEsquesdaCima(context); 
+        }
+
+        if(this.toothId >= 21 && this.toothId <= 28){
+            this.DaEsquerdaParaDireitaCima(context);            
+        }
+
+        if(this.toothId >= 51 && this.toothId <= 55){
+            this.DaDireitaParaEsquesdaCima(context);
+        }
+
+        if(this.toothId >= 61 && this.toothId <= 65){
+            this.DaEsquerdaParaDireitaCima(context);
+        }
+    }else{
+        if(this.toothId >= 41 && this.toothId <= 48){
+             this.DaDireitaParaEsquerdaBaixo(context);
+        }
+
+        if(this.toothId >= 31 && this.toothId <= 38){
+            this.DaEsquerdaParaDireitaBaixo(context);
+        }
+
+        if(this.toothId >= 81 && this.toothId <= 85){
+            this.DaDireitaParaEsquerdaBaixo(context);
+        }
+
+        if(this.toothId >= 71 && this.toothId <= 75){
+            this.DaEsquerdaParaDireitaBaixo(context);
+        }
+    }
+    
+
+    // if (this.type === 0) {
+
+    //     context.moveTo(this.rect.x,
+    //             this.rect.y + this.rect.height);
+
+    //     context.lineTo(this.rect.x + this.rect.width,
+    //             this.rect.y + this.rect.height / 2);
+
+    // } else {
+
+    //     context.moveTo(this.rect.x, this.rect.y);
+
+    //     context.lineTo(this.rect.x + this.rect.width,
+    //             this.rect.y + this.rect.height / 2);
+    // }
+
+    context.lineWidth = 2;
+    // set line color
+    context.strokeStyle = settings.COLOR_BLUE;
+    context.stroke();
+    context.restore();
+
+};
+
 Damage.prototype.render = function (context, settings, constants) {
     "use strict";
 
     if (this.origin === "0") {
+
+        if (this.id === constants.TRAT_ENDO_FEITO) {
+            this.drawTratEndoFeito(context, settings);
+        }
 
         if (this.id === constants.COLO_DENTARIO_FEITO) {
             this.drawColoDentarioFeito(context, settings);

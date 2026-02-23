@@ -63,6 +63,7 @@ function Constants() {
     this.PROTESE_FIXA = 43;
     this.COLO_DENTARIO = 44;
     this.COLO_DENTARIO_FEITO = 45;
+    this.TRAT_ENDO_FEITO = 46;
 
     this.all = [
         this.CARIES,
@@ -108,7 +109,8 @@ function Constants() {
         this.DOENCA_PERIODONTAL,
         this.PROTESE_FIXA,
         this.COLO_DENTARIO,
-        this.COLO_DENTARIO_FEITO
+        this.COLO_DENTARIO_FEITO,
+        this.TRAT_ENDO_FEITO
     ];
     /**
      * Method to check if a damage is writable, is text only

@@ -1939,17 +1939,16 @@ Engine.prototype.createMenu = function () {
     let posX = startX;
     let xSeparator = buttonWidth;
 
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Cárie / Rest. Prov.", 1, true);
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Cárie / Rest. Prov.", 1, true);    
     posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Coroa Definit.", 2, true);
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Trat. Endo", 42, true); // Diminuir a altura da linha
     posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Coroa Provis.", 3, true);
-    posX = posX + xSeparator;    
     this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Exo", 39, true);
-    posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Exo Feita", 4, true);    
-    posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Diastema", 8, true);
+   posX = posX + xSeparator;
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Raiz Rem.", 16, true);
+    posX = posX + xSeparator;    
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Coroa Definit.", 2, true);
+   
 
     posY = posY + buttonHeight + ySeparator;
     posX = startX;
@@ -1962,31 +1961,39 @@ Engine.prototype.createMenu = function () {
     // this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Rotation", 14);
     // posX = posX + xSeparator;
     // this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Fusion", 15);
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Rest. Amalgama", 11, true);
+       this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Rest. Amálgama", 11, true);
+       posX = posX + xSeparator;
+       this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Trat. Endo Feito", 46, true); // Diminuir altura linha
+        posX = posX + xSeparator;
+        this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Exo Feita", 4, true); 
+        posX = posX + xSeparator;
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Supranumerário", 27,true);
+    posX = posX + xSeparator;
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Coroa Provis.", 3, true);
 
-    posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Rest. Resina", 40, true);
-    posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Raiz Rem.", 16, true);
-    posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Supranumerário", 27,true);    
-     posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Semi Erup.", 5, true); //Converter para azul  ✅  
-    posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Faceta Resina", 10, true); // Mudar para azul claro ✅
+   
+        
+    
+    
+     
+      
+   
     
     posY = posY + buttonHeight + ySeparator;
     posX = startX;
+
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Rest. Resina", 40, true);
+    posX = posX + xSeparator;
+     this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Trat. Perio", 44, true); // Uma versão azul (Feito) ✅
+     posX = posX + xSeparator;
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Decíduo Presente", 41, true);
+     posX = posX + xSeparator;
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Semi Erup.", 5, true); //Converter para azul  ✅  
     
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Decíduo", 41, true);
-    posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Trat. Endo", 42, true); // Uma versão azul verticalizada (Feito) ✅
-    posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Trat. Endo Feito", 31, true);
-    posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Trat. Perio", 44, true); // Uma versão azul (Feito) ✅
-    posX = posX + xSeparator;
-    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Trat. Perio Feito", 45, true);
+    
+    
+    
+    
     
     // TODO: O que usar para dentes ausentes? ❓❓❓❓
     
@@ -2003,7 +2010,14 @@ Engine.prototype.createMenu = function () {
 
     posY = posY + buttonHeight + ySeparator;
     posX = startX;
-
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Faceta Resina", 10, true); // Mudar para azul claro ✅
+    posX = posX + xSeparator;
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Trat. Perio Feito", 45, true);
+    posX = posX + xSeparator;
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Dente Ausente", 31, true);
+     posX = posX + xSeparator;
+    this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Diastema", 8, true);
+    
     // this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Fixed Ortho", 32);
     // posX = posX + xSeparator;
     // this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Fixed Prosth", 34);
@@ -2017,6 +2031,8 @@ Engine.prototype.createMenu = function () {
 
     posY = posY + buttonHeight + ySeparator;
     posX = startX;
+ 
+    
 
     // this.createMenuButton(posX, posY, buttonWidth, buttonHeight, "Worn", 37);
     // posX = posX + xSeparator;

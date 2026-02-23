@@ -739,7 +739,7 @@ OdontogramaGenerator.prototype.prepareOdontogramaAdult = function (
     var baseSuperior = (height / 2) - rowHeight - (verticalGap / 2);
     var baseInferior = (height / 2) + (verticalGap / 2);
 
-    var separationGap = 80; // 🔥 espaço extra entre adulto e infantil
+    var separationGap = 40; // 🔥 espaço extra entre adulto e infantil
 
     // =============================
     // DEFINIÇÃO DOS GRUPOS
@@ -754,9 +754,20 @@ OdontogramaGenerator.prototype.prepareOdontogramaAdult = function (
             imagePrefix: "images/dentadura-sup-",
             type: 0,
             base: baseSuperior,
-            extraGapAfter: separationGap,
+            extraGapAfter: 0,
             surfaces: function (id) {
                 return id > 13 ? 5 : 4;
+            }
+        },
+        {
+            start: 21,
+            end: 28,
+            imagePrefix: "images/dentadura-sup-",
+            type: 0,
+            base: baseSuperior,
+            extraGapAfter: separationGap,
+            surfaces: function (id) {
+                return id > 23 ? 5 : 4;
             }
         },
 
@@ -764,6 +775,17 @@ OdontogramaGenerator.prototype.prepareOdontogramaAdult = function (
         {
             start: 55,
             end: 51,
+            imagePrefix: "images/dentadura-sup-",
+            type: 0,
+            base: baseSuperior,
+            extraGapAfter: 0,
+            surfaces: function () {
+                return 4;
+            }
+        },
+        {
+            start: 61,
+            end: 65,
             imagePrefix: "images/dentadura-sup-",
             type: 0,
             base: baseSuperior,
@@ -780,9 +802,20 @@ OdontogramaGenerator.prototype.prepareOdontogramaAdult = function (
             imagePrefix: "images/dentadura-inf-",
             type: 1,
             base: baseInferior,
-            extraGapAfter: separationGap,
+            extraGapAfter: 0,
             surfaces: function (id) {
                 return id > 44 ? 5 : 4;
+            }
+        },
+        {
+            start: 31,
+            end: 38,
+            imagePrefix: "images/dentadura-inf-",
+            type: 1,
+            base: baseInferior,
+            extraGapAfter: separationGap,
+            surfaces: function (id) {
+                return id > 33 ? 5 : 4;
             }
         },
 
@@ -790,6 +823,17 @@ OdontogramaGenerator.prototype.prepareOdontogramaAdult = function (
         {
             start: 85,
             end: 81,
+            imagePrefix: "images/dentadura-inf-",
+            type: 1,
+            base: baseInferior,
+            extraGapAfter: 0,
+            surfaces: function () {
+                return 4;
+            }
+        },
+        {
+            start: 71,
+            end: 75,
             imagePrefix: "images/dentadura-inf-",
             type: 1,
             base: baseInferior,
